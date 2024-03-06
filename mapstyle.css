@@ -1,0 +1,29 @@
+#overlay {
+	z-index:1000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 150px;
+  	width: 10%;
+  	background: rgba(204, 204, 204, 0.5);
+  	opacity: 0.8;
+  	align-items: center;
+}
+}
+
+#overlay:hover {
+  opacity: 1.0;
+}
+
+#togglelayer {
+text-align: center;
+vertical-align: middle;
+line-height: 90px;
+}
+
+#myMap { 
+    height: 1000px;
+    z-index: 999;
+    position: relative;
+}
+

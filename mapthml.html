@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>map</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="mapstyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+     <link rel="stylesheet" href="mapstyle.css">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+     
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    	
+</head>
+
+<body>
+<!-- 
+<div id="total">
+<div id="overlay">
+<h4> Map Options </h4>
+  <button id="toggleLayer">Origins</button>
+  <button id="toggleLayer">Destinations</button>
+  <button id="toggleLayer">Journeys</button>
+  </div>
+  -->
+  
+  <div id="myMap"> </div>
+  
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js">
+</script> 
+</div>
+</body>
+
+</html>
+
+<script src="data.js"></script>
+
+
+<script>
+ //MapLayers
+
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+});
+
+var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'});
+
+var baseMaps = {
+    "OpenStreetMap": osm,
+    "OpenStreetMap.HOT": osmHOT
+}
+
+var overMaps = {
+    "See Captivity as Spread": dcap,
+    "See Origins as Spread": dorigins,
+    "See Origins as Totals": markers2,
+    "See Captivity as Totals": markers1
+}
+
+
+L.control.layers(baseMaps, overMaps).addTo(map);
+</script>
